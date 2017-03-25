@@ -49,7 +49,6 @@ export default {
     },
     data() {
         return {
-            oked: false
         };
     },
     computed: {
@@ -63,11 +62,7 @@ export default {
     },
     mounted() {
         $(this.$el).on('hide.bs.modal', e => {
-            if (this.oked) {
-                this.oked = false;
-            } else {
-                this.cancel();
-            }
+			this.cancel();
         });
         if (this.show) {
             this.showModal();
@@ -87,7 +82,6 @@ export default {
     },
     methods: {
         ok() {
-            this.oked = true;
             this.$emit('ok');
         },
         cancel() {
