@@ -8,7 +8,6 @@
         props: {
             show: {
                 type: Boolean,
-                twoWay: true,
                 default: false
             },
             title: {
@@ -56,12 +55,6 @@
             cancelClass: {
                 type: String,
                 default: 'btn red btn-outline'
-            },
-            // 点击确定时关闭Modal
-            // 默认为false，由父组件控制prop.show来关闭
-            closeWhenOK: {
-                type: Boolean,
-                default: false
             }
         },
         data () {
@@ -107,13 +100,9 @@
         methods: {
             ok () {
                 this.$emit('ok');
-                if (this.closeWhenOK) {
-                    this.show = false;
-                }
             },
             cancel () {
                 this.$emit('cancel');
-                this.show = false;
             },
             // 点击遮罩层
             clickMask () {
