@@ -49,6 +49,7 @@ export default {
     },
     data() {
         return {
+            oked: false
         };
     },
     computed: {
@@ -62,14 +63,21 @@ export default {
     },
     mounted() {
         $(this.$el).on('hide.bs.modal', e => {
-			this.cancel();
+            this.$emit('hiding');
+        });
+        $(this.$el).on('shown.bs.modal', e => {
+            this.oked = false;
+        });
+        $(this.$el).on('hidden.bs.modal', e => {
+            if (this.oked) {
+                this.$emit('ok');
+            } else {
+                this.$emit('cancel');
+            }
         });
         if (this.show) {
             this.showModal();
         }
-    },
-    beforeDestroy() {
-        this.hideModal();
     },
     watch: {
         show(value) {
@@ -82,10 +90,12 @@ export default {
     },
     methods: {
         ok() {
-            this.$emit('ok');
+            this.oked = true;
+            this.hideModal();
         },
         cancel() {
-            this.$emit('cancel');
+            this.oked = false;
+            this.hideModal();
         },
         showModal() {
             $(this.$el).modal('show');
