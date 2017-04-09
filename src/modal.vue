@@ -115,7 +115,6 @@ export default {
              :class="modalClass"
              role="document">
             <div class="modal-content">
-                <!--Header-->
                 <div class="modal-header">
                     <slot name="header">
                         <button type="button"
@@ -125,21 +124,21 @@ export default {
                         <h4 class="modal-title"><slot name="title">{{title}}</slot></h4>
                     </slot>
                 </div>
-                <!--Container-->
-                <div class="modal-body">
-                    <slot></slot>
-                </div>
-                <!--Footer-->
-                <div class="modal-footer">
-                    <slot name="footer">
-                        <button type="button"
-                                :class="okClass"
-                                @click="ok">{{okText}}</button>
-                        <button type="button"
-                                :class="cancelClass"
-                                @click="hideModal">{{cancelText}}</button>
-                    </slot>
-                </div>
+                <form>
+                    <div class="modal-body">
+                        <slot></slot>
+                    </div>
+                    <div class="modal-footer">
+                        <slot name="footer">
+                            <button type="submit"
+                                    :class="okClass"
+                                    @click.prevent="ok">{{okText}}</button>
+                            <button type="button"
+                                    :class="cancelClass"
+                                    @click="hideModal">{{cancelText}}</button>
+                        </slot>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
