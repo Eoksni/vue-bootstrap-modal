@@ -1,0 +1,9 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib/",
+    "files.exclude": {
+        "**/.git": true,
+        "lib": true,
+        "node_modules": true
+    },
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false
+}

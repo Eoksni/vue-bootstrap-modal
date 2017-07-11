@@ -1,100 +1,32 @@
+[![Build Status](https://travis-ci.org/emotz/vue-bootstrap-modal.svg?branch=master)](https://travis-ci.org/emotz/vue-bootstrap-modal.svg?branch=master)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 # vue-bootstrap-modal
 
-Bootstrap style modal component for vue.
+Component to use with Vue 2 to show modal dialogs styled with bootstrap.
 
-<img src="https://github.com/Coffcer/vue-bootstrap-modal/blob/master/modal.gif">
+It doesn't really depend on bootstrap, you can use whatever css styles you want.
+
+# Installation
+
+```bat
+npm install https://github.com/emotz/vue-bootstrap-modal
+```
 
 # Usage
 
-import Bootstrap.css
-```
-<link href="bootstrap.css"></link>
-```
-**NOTE:**  By default, the modal style is pure bootstrap style, you can use any 3rd party bootstrap framework, like above GIF.
+Tested on Windows, but should work on Linux/MacOS as well.
 
+First you need to include the component using some build software (e.g. webpack with vue-loader).
 
-simple options:
-``` html
-<!--text content-->
-<modal title="Modal Title" :show.sync="show" @ok="ok" @cancel="cancel">
-    Modal Text
-</modal>
+Then write in your component's template:
 
-<!--custom content-->
-<modal title="Modal Title" :show.sync="show" @ok="ok" @cancel="cancel">
-    <div>Modal Body</div>
-    
-    <div slot="header">Modal Header</div>
-    <div slot="title">Modal Title</div>
-    <div slot="footer">Modal Footer</div>
+```html
+
+<modal :show.sync="showModal" @ok="alert('ok')" @cancel="alert('cancel')">
+  <span slot="title">My title</span>
+
+  Just some text!
 </modal>
 
 ```
-
-#Props
-``` javascript
-props: {
-    show: {
-        type: Boolean,
-        twoWay: true,
-        default: false
-    },
-    title: {
-        type: String,
-        default: 'Modal'
-    },
-    // Bootstrap small style modal
-    small: {
-        type: Boolean,
-        default: false
-    },
-    // Bootstrap large style modal
-    large: {
-        type: Boolean,
-        default: false
-    },
-    // Bootstrap full style modal    
-    full: {
-        type: Boolean,
-        default: false
-    },
-    // if it set false, click background will close modal 
-    force: {
-        type: Boolean,
-        default: false
-    },
-    // vue transition name
-    transition: {
-        type: String,
-        default: 'modal'
-    },
-    // [OK button] text
-    okText: {
-        type: String,
-        default: 'OK'
-    },
-    // [Cancel button] text
-    cancelText: {
-        type: String,
-        default: 'Cancel'
-    },
-    // [OK button] className
-    okClass: {
-        type: String,
-        default: 'btn blue'
-    },
-    // [Cancel button] className
-    cancelClass: {
-        type: String,
-        default: 'btn red btn-outline'
-    },
-    // automatically close when click [OK button]
-    closeWhenOK: {
-        type: Boolean,
-        default: false
-    }
-}
-```
-
-# License
-MIT

@@ -1,31 +1,43 @@
 {
   "name": "vue-bootstrap-modal",
-  "description": "Bootstrap Style Modal for Vue",
-  "version": "0.1.14",
-  "author": "coffce",
-  "main": "./src/modal.vue",
+  "version": "0.1.0",
+  "description": "Component to use with Vue 2 to show modal dialogs styled with bootstrap.",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Coffcer/vue-bootstrap-modal"
+    "url": "git+https://github.com/emotz/vue-bootstrap-modal.git"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
-      [
-        "vueify"
-      ]
-    ]
+  "bugs": {
+    "url": "https://github.com/emotz/vue-bootstrap-modal/issues"
   },
-  "keywords": [
-    "vue",
-    "modal",
-    "vue-modal"
-  ]
+  "homepage": "https://github.com/emotz/vue-bootstrap-modal#readme",
+  "author": "emotz",
+  "files": [
+    "src"
+  ],
+  "main": "src/modal.vue",
+  "scripts": {
+    "lint": "eslint . --format unix"
+  },
+  "optionalDependencies": {
+    "@types/node": "^7.0.0",
+    "eslint": "^4.2.0"
+  },
+  "peerDependencies": {
+    "bootstrap": "^3.3.7",
+    "vue": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src/*.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "reporter": [],
+    "all": true
+  }
 }
