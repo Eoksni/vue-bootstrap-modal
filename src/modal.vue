@@ -1,7 +1,7 @@
 <template>
   <div v-show="show">
-    <div class="modal-backdrop in" @click="cancel"></div>
-    <div class="modal show" tabindex="-1">
+    <div class="modal-backdrop in"></div>
+    <div @click="cancel" class="modal show" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content" @click.stop>
           <div class="modal-header">

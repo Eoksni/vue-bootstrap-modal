@@ -29,15 +29,5 @@
   },
   "engines": {
     "node": ">=7.0.0"
-  },
-  "nyc": {
-    "include": [
-      "src/*.js"
-    ],
-    "extension": [
-      ".js"
-    ],
-    "reporter": [],
-    "all": true
   }
 }
