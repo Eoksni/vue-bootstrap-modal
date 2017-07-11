@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div class="modal-backdrop in" @click="cancel" v-show="show"></div>
-    <div class="modal show" v-show="show" tabindex="-1">
+  <div v-show="show">
+    <div class="modal-backdrop in" @click="cancel"></div>
+    <div class="modal show" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content" @click.stop>
           <div class="modal-header">
-            <button type="button" class="close"><span>&times;</span></button>
+            <button @click="cancel" type="button" class="close"><span>&times;</span></button>
             <h4 class="modal-title">
               <slot name="title">
                 Modal Title
