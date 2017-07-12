@@ -5,25 +5,25 @@ export default {
             default: true
         }
     },
-    data() {
+    data: function() {
         return {
             // we have to use current_show var because show prop will not be
             // updated if we don't use `:show.sync=` in parent component
             current_show: this.show
         };
     },
-    mounted() {
-        document.addEventListener('keydown', (e) => {
+    mounted: function() {
+        document.addEventListener('keydown', function(e) {
             if (this.show && e.keyCode === 27) {
                 this.cancel();
             }
         });
     },
     watch: {
-        show(new_val) {
+        show: function(new_val) {
             this.current_show = new_val;
         },
-        current_show(new_val) {
+        current_show: function(new_val) {
             if (new_val !== this.show) {
                 // this is Vue's fancy way of doing `this.show = false`
                 this.$emit('update:show', new_val);
@@ -31,14 +31,14 @@ export default {
         }
     },
     methods: {
-        close() {
+        close: function() {
             this.current_show = false;
         },
-        cancel() {
+        cancel: function() {
             this.close();
             this.$emit('cancel');
         },
-        ok() {
+        ok: function() {
             this.close();
             this.$emit('ok');
         }

@@ -30,3 +30,15 @@ Then write in your component's template:
 </modal>
 
 ```
+
+or
+
+```js
+import { Modal, open } from 'vue-bootstrap-modal';
+
+open(Modal).then(function() {
+  alert('ok');
+}, function() {
+  alert('cancel');
+});
+```
