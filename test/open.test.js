@@ -8,7 +8,7 @@ describe('open', () => {
         promise.then(done);
     });
 
-    it('should not have any leftovers elements', (done) => {
+    it('should not have any leftover elements', (done) => {
         const initialLength = document.body.childNodes.length;
         const promise = open();
         promise.then(() => {
