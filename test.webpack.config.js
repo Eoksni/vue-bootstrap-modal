@@ -24,6 +24,14 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.vue$/, loader: 'vue-loader' },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015'],
+                    plugins: ["es6-promise"]
+                }
+            }
         ]
     },
     watch: false,
