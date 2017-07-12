@@ -4,7 +4,7 @@ node_js:
 script:
   - npm run clean
   - npm run build
-  - npm run coverage
+  - npm run test
 cache:
   directories:
   - node_modules
