@@ -1,10 +1,8 @@
-import Vue from 'vue';
-
-export function mount(Component) {
+export function mount(ctor, options) {
     const elem = document.createElement("div");
     document.body.insertBefore(elem, document.body.childNodes[0]);
 
-    const component = new Vue(Component).$mount(elem);
+    const component = new ctor(options).$mount(elem);
     return component;
 }
 
@@ -29,8 +27,8 @@ export function unmount(component) {
     elem.parentNode.removeChild(elem);
 }
 
-export function open(Component) {
-    const comp = mount(Component);
+export function open(ctor, options) {
+    const comp = mount(ctor, options);
     const promise = wait_for_result(comp);
     return promise.then(function(val) {
         unmount(comp);

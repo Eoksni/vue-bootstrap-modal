@@ -62,10 +62,11 @@ Or, use it as a callable function:
 ```js
 import { open } from 'vue-bootstrap-modal';
 import Confirm from './confirm.vue';
+import Vue from 'vue';
 
 async function ask_confirm() {
     try {
-        let msg = await open(Confirm);
+        let msg = await open(Vue.extend(Confirm));
         alert(msg); // will show 'user confirmed' as specified in confirm.vue
     } catch (err) {
         alert(err); // will show 'user rejected' as specified in confirm.vue
