@@ -19,26 +19,56 @@ Tested on Windows, but should work on Linux/MacOS as well.
 
 First you need to include the component using some build software (e.g. webpack with vue-loader).
 
-Then write in your component's template:
+Then write modal component `confirm.vue`:
 
-```html
+```vue
+<template>
+    <modal :show.sync="show" @ok="ok" @cancel="cancel">
+        <span slot="title">Confirm</span>
 
-<modal :show.sync="showModal" @ok="alert('ok')" @cancel="alert('cancel')">
-  <span slot="title">My title</span>
+        Are you sure?
+    </modal>
+</template>
 
-  Just some text!
-</modal>
+<script>
+import { Modal } from 'vue-bootstrap-modal';
 
+export default {
+    components: {
+        Modal
+    },
+    data: function() {
+        return {
+            show: true
+        };
+    },
+    methods: {
+        ok: function() {
+            this.$emit('ok', "user confirmed");
+        },
+        cancel: function() {
+            this.$emit('cancel', "user rejected");
+        }
+    }
+};
+
+</script>
 ```
 
-or
+And then use it as any other component.
+
+Or, use it as a callable function:
 
 ```js
-import { Modal, open } from 'vue-bootstrap-modal';
+import { open } from 'vue-bootstrap-modal';
+import Confirm from './confirm.vue';
 
-open(Modal).then(function() {
-  alert('ok');
-}, function() {
-  alert('cancel');
-});
+async function ask_confirm() {
+    try {
+        let msg = await open(Confirm);
+        alert(msg); // will show 'user confirmed' as specified in confirm.vue
+    } catch (err) {
+        alert(err); // will show 'user rejected' as specified in confirm.vue
+    }
+}
 ```

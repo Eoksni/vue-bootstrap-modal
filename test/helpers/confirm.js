@@ -4,6 +4,11 @@ export default {
     components: {
         Modal
     },
+    data: function() {
+        return {
+            show: true
+        };
+    },
     methods: {
         ok: function() {
             this.$emit('ok');
