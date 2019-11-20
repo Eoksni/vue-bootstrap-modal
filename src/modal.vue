@@ -6,7 +6,7 @@
       class="modal show"
       tabindex="-1"
     >
-      <div class="modal-dialog">
+      <form class="modal-dialog">
         <div
           class="modal-content"
           @click.stop
@@ -33,7 +33,7 @@
           <div class="modal-footer">
             <button
               @click="ok"
-              type="button"
+              type="submit"
               class="btn btn-primary btn-modal-ok"
             >
               <slot name="button_ok">
@@ -51,7 +51,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>

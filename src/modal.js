@@ -25,7 +25,8 @@ export default {
       this.close();
       this.$emit('cancel');
     },
-    ok: function () {
+    ok: function (e) {
+      e.preventDefault();
       this.close();
       this.$emit('ok');
     }
