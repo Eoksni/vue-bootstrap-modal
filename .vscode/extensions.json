@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.remote-ssh",
+    "dbaeumer.vscode-eslint",
+    "bbenoist.vagrant",
+    "octref.vetur",
+    "editorconfig.editorconfig",
+    "davidanson.vscode-markdownlint"
+  ]
+}

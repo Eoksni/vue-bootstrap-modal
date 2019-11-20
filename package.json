@@ -18,7 +18,7 @@
   "main": "src/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run lint -s && webpack --config vendor.webpack.config.js",
+    "build": "npm run lint -s",
     "test": "webpack --config test.webpack.config && karma start",
     "lint": "eslint . --format unix"
   },

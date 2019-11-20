@@ -23,35 +23,34 @@ Then write modal component `confirm.vue`:
 
 ```vue
 <template>
-    <modal :show.sync="show" @ok="ok" @cancel="cancel">
-        <span slot="title">Confirm</span>
+  <modal :show.sync="show" @ok="ok" @cancel="cancel">
+    <span slot="title">Confirm</span>
 
-        Are you sure?
-    </modal>
+    Are you sure?
+  </modal>
 </template>
 
 <script>
-import { Modal } from 'vue-bootstrap-modal';
+import { Modal } from "vue-bootstrap-modal";
 
 export default {
-    components: {
-        Modal
+  components: {
+    Modal
+  },
+  data: function() {
+    return {
+      show: true
+    };
+  },
+  methods: {
+    ok: function() {
+      this.$emit("ok", "user confirmed");
     },
-    data: function() {
-        return {
-            show: true
-        };
-    },
-    methods: {
-        ok: function() {
-            this.$emit('ok', "user confirmed");
-        },
-        cancel: function() {
-            this.$emit('cancel', "user rejected");
-        }
+    cancel: function() {
+      this.$emit("cancel", "user rejected");
     }
+  }
 };
-
 </script>
 ```
 
@@ -60,16 +59,58 @@ And then use it as any other component.
 Or, use it as a callable function:
 
 ```js
-import { open } from 'vue-bootstrap-modal';
-import Confirm from './confirm.vue';
-import Vue from 'vue';
+import { open } from "vue-bootstrap-modal";
+import Confirm from "./confirm.vue";
+import Vue from "vue";
 
 async function ask_confirm() {
-    try {
-        let msg = await open(Vue.extend(Confirm));
-        alert(msg); // will show 'user confirmed' as specified in confirm.vue
-    } catch (err) {
-        alert(err); // will show 'user rejected' as specified in confirm.vue
-    }
+  try {
+    let msg = await open(Vue.extend(Confirm));
+    alert(msg); // will show 'user confirmed' as specified in confirm.vue
+  } catch (err) {
+    alert(err); // will show 'user rejected' as specified in confirm.vue
+  }
 }
 ```
+
+# Development
+
+## Vagrant
+
+It sets up virtual machine with development environment.
+
+```sh
+# with administrative rights:
+vagrant up
+```
+
+Login to virtual machine:
+
+```sh
+vagrant ssh
+```
+
+### VSCode Remote SSH Over Vagrant
+
+Set up vscode to have vagrant ssh host:
+
+`F1 -> Remote-SSH: Open configuration File...`
+
+Put there result of `vagrant ssh-config` with replaced hostname `default` to `passwordkeeper` (or the name to your likings):
+
+```
+Host default
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile <yourpath>/.vagrant/machines/default/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+```
+
+Open `/vagrant` directory.
+
+## Test
