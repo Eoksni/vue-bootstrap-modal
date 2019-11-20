@@ -37,7 +37,6 @@
     "jasmine-core": "^2.6.4",
     "karma": "^1.7.0",
     "karma-jasmine": "^1.1.0",
-    "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
     "rimraf": "^2.6.1",
     "vue-loader": "^13.0.1",

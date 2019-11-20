@@ -2,7 +2,7 @@
 
 // Karma configuration
 // Generated on Tue Mar 21 2017 16:40:41 GMT+0700 (Altai Standard Time)
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: "",
@@ -45,12 +45,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["PhantomJS"],
+    // browsers: ["PhantomJS"],
 
-    phantomjsLauncher: {
-      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
-      exitOnResourceError: true
-    },
+    // phantomjsLauncher: {
+    //   // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+    //   exitOnResourceError: true
+    // },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
