@@ -90,6 +90,14 @@ Login to virtual machine:
 vagrant ssh
 ```
 
+And then (only once):
+
+```sh
+nvm install 10
+```
+
+And you are ready to go!
+
 ### VSCode Remote SSH Over Vagrant
 
 Set up vscode to have vagrant ssh host:
@@ -98,7 +106,7 @@ Set up vscode to have vagrant ssh host:
 
 Put there result of `vagrant ssh-config` with replaced hostname `default` to `passwordkeeper` (or the name to your likings):
 
-```
+```ssh
 Host default
   HostName 127.0.0.1
   User vagrant
@@ -114,3 +122,15 @@ Host default
 Open `/vagrant` directory.
 
 ## Test
+
+```sh
+npm run test
+# it starts up karma server and prints its url
+# open this url in your browser and then check the results in the console
+```
+
+## Example
+
+```sh
+npm run example
+```

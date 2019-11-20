@@ -1,23 +1,31 @@
 /*eslint-env node */
 const path = require("path");
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: ["./test/test-index.js"],
+  mode: "development",
+  entry: ["./example/example-index.js"],
   output: {
-    filename: "test.bundle.js",
+    filename: "example.bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   devtool: "inline-source-map",
+  devServer: {
+    contentBase: path.resolve(__dirname, "dist")
+  },
   resolve: {
     alias: {
       src: path.resolve(__dirname, "src"),
-      vue$: "vue/dist/vue.esm.js" // required to bundle vue with compiler so it can process templates
+      vue$: "vue/dist/vue.runtime.js"
     }
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'example/example-index.html',
+      filename: 'index.html'
+    })
   ],
   module: {
     rules: [
