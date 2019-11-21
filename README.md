@@ -125,8 +125,6 @@ Open `/vagrant` directory.
 
 ```sh
 npm run test
-# it starts up karma server and prints its url
-# open this url in your browser and then check the results in the console
 ```
 
 ## Example

@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
 	config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provision "default-directory", type: "shell", privileged: false, inline: "echo \"\\\n\\\ncd /vagrant\" >> /home/vagrant/.bashrc"
+  config.vm.provision "chromium-install", type: "shell", privileged: true, inline: "apt-get update && apt-get install -y chromium-browser"
   config.vm.provision "nvm-install", type: "shell", privileged: false, inline: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash"
 
 	# config.vm.network :forwarded_port, guest: 35729, host: 35729 # live reload

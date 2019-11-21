@@ -1,5 +1,7 @@
 /*eslint-env node */
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 // Karma configuration
 // Generated on Tue Mar 21 2017 16:40:41 GMT+0700 (Altai Standard Time)
 module.exports = function (config) {
@@ -45,7 +47,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    // browsers: ["PhantomJS"],
+    browsers: ["ChromeHeadless"],
 
     // phantomjsLauncher: {
     //   // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
